@@ -1,182 +1,186 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pasteleria Mil Sabores | Inicio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasteleria Mil Sabores | Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-mil-sabores sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Mil Sabores</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="catalog.html">Catálogo</a></li>
-        <li class="nav-item"><a class="nav-link" href="description.html">Nosotros</a></li>
-        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="profile.html">Mi cuenta</a></li>
-        <li class="nav-item">
-          <a class="nav-link position-relative" href="cart.html"> Carrito
-            <span class="badge rounded-pill badge-carrito contador-carrito position-absolute top-0 start-100 translate-middle">0</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero-mil-sabores">
-  <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-7">
-        <span class="chip-categoria mb-3 d-inline-block">50 años endulzando tu vida</span>
-        <h1>Celebrando la dulzura de la vida desde 1975</h1>
-        <p class="fs-5">Pastelería Mil Sabores referente de la repostería chilena: participamos en el récord
-          Guinness de 1995 a la torta más grande del mundo, y hoy trabajamos para llevar esa
-          tradición directo a tu puerta.</p>
-        <div class="d-flex flex-wrap gap-2 mt-4">
-          <a href="catalog.html" class="btn btn-mil-sabores btn-lg px-4">Ver catálogo</a>
-          <a href="signup.html" class="btn btn-outline-mil-sabores btn-lg px-4">Crear cuenta y obtener descuentos</a>
-        </div>
-      </div>
-      <div class="col-lg-5 text-center">
-        <div class="p-4 sombra-suave rounded-4" style="background:#fffefb;">
-          <p class="titulo-cursivo fs-2 mb-1">Récord Guinness 1995</p>
-          <p class="mb-0">Colaboramos en la creación de la torta más grande del mundo, un hito que sigue
-            inspirando cada receta que sale de nuestro obrador.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- CATEGORIAS RAPIDAS -->
-<section class="seccion">
-  <div class="container">
-    <h2 class="text-center mb-4">Explora por categoría</h2>
-    <div class="row g-3" id="categoriasRapidas">
-      <div class="col-6 col-md-3">
-        <a href="catalog.html?categoria=Tortas%20Cuadradas" class="text-decoration-none">
-          <div class="card-producto text-center p-3">
-            <div class="icono-redondo"></div>
-            <h6>Tortas Cuadradas</h6>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="catalog.html?categoria=Tortas%20Circulares" class="text-decoration-none">
-          <div class="card-producto text-center p-3">
-            <div class="icono-redondo"></div>
-            <h6>Tortas Circulares</h6>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="catalog.html?categoria=Productos%20Vegana" class="text-decoration-none">
-          <div class="card-producto text-center p-3">
-            <div class="icono-redondo"></div>
-            <h6>Linea Vegana</h6>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="catalog.html?categoria=Tortas%20Especiales" class="text-decoration-none">
-          <div class="card-producto text-center p-3">
-            <div class="icono-redondo"></div>
-            <h6>Tortas Especiales</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTOS DESTACADOS -->
-<section class="seccion seccion-alterna">
-  <div class="container">
-    <h2 class="text-center mb-4">Productos destacados</h2>
-    <div class="row g-4" id="contenedorDestacados">
-      <!-- JS insertara 4 tarjetas de producto -->
-    </div>
-    <div class="text-center mt-4">
-      <a href="catalog.html" class="btn btn-rosa btn-lg">Ver catálogo completo</a>
-    </div>
-  </div>
-</section>
-
-<!-- TEXTOS INFERIORES (MISION-VISION-IMPACTO)-->
-<section class="seccion">
-  <div class="container">
-    <div class="row g-4 text-center justify-content-center">
-      <div class="col-md-6">
-        <div class="icono-redondo"></div>
-        <h5>Misión</h5>
-        <p class="texto-secundario">Ofrecer una experiencia dulce y memorable, con productos de alta calidad para
-          todas las ocasiones, celebrando nuestras raíces históricas.</p>
-      </div>
-      <div class="col-md-6">
-        <div class="icono-redondo"></div>
-        <h5>Visión</h5>
-        <p class="texto-secundario">Ser la tienda online líder de repostería en Chile, reconocida por innovar,
-          por su calidad e impacto en la comunidad gastronómica.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer-mil-sabores">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <h6>🧁 Pastelería Mil Sabores</h6>
-        <p class="mb-0">50 años endulzando momentos en Chile.</p>
-      </div>
-      <div class="col-md-4">
-        <h6>Enlaces</h6>
-        <ul class="list-unstyled">
-          <li><a href="catalog.html">Catálogo</a></li>
-          <li><a href="description.html">Nosotros</a></li>
-          <li><a href="blog.html">Blog y recetas</a></li>
-          <li><a href="follow.html">Seguimiento de pedido</a></li>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-mil-sabores sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Mil Sabores</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="description.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Mi cuenta</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="cart.html"> Carrito
+              <span
+                class="badge rounded-pill badge-carrito contador-carrito position-absolute top-0 start-100 translate-middle">0</span>
+            </a>
+          </li>
         </ul>
       </div>
-      <div class="col-md-4">
-        <h6>Síguenos</h6>
-        <div class="d-flex gap-3 fs-4">
-          <a href="#" onclick="compartirEnRedes('¡Mira Pastelería Mil Sabores!'); return false;">Instagram</a>
-          <a href="#" onclick="compartirEnRedes('¡Mira Pastelería Mil Sabores!'); return false;">Facebook</a>
-          <a href="#" onclick="compartirEnRedes('¡Mira Pastelería Mil Sabores!'); return false;">Twitter</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-mil-sabores">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="chip-categoria mb-3 d-inline-block">50 años endulzando tu vida</span>
+          <h1>Celebrando la dulzura de la vida desde 1975</h1>
+          <p class="fs-5">Pastelería Mil Sabores referente de la repostería chilena: participamos en el récord
+            Guinness de 1995 a la torta más grande del mundo, y hoy trabajamos para llevar esa
+            tradición directo a tu puerta.</p>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="catalog.html" class="btn btn-mil-sabores btn-lg px-4">Ver catálogo</a>
+            <a href="signup.html" class="btn btn-outline-mil-sabores btn-lg px-4">Crear cuenta y obtener descuentos</a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="p-4 sombra-suave rounded-4" style="background:#fffefb;">
+            <p class="titulo-cursivo fs-2 mb-1">Récord Guinness 1995</p>
+            <p class="mb-0">Colaboramos en la creación de la torta más grande del mundo, un hito que sigue
+              inspirando cada receta que sale de nuestro obrador.</p>
+          </div>
         </div>
       </div>
     </div>
-    <hr class="border-light opacity-10">
-    <p class="text-center mb-0 small"><span class="anio-actual"></span> Pastelería Mil Sabores. FullStack II Grupo6.</p>
-  </div>
-</footer>
+  </header>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/data.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/main.js"></script>
-<script>
-  // Pinta 4 productos destacados en la portada
-  const destacados = [PRODUCTOS[0], PRODUCTOS[2], PRODUCTOS[12], PRODUCTOS[14]];
-  const contenedor = document.getElementById("contenedorDestacados");
-  destacados.forEach(p => {
-    contenedor.innerHTML += `
+  <!-- CATEGORIAS RAPIDAS -->
+  <section class="seccion">
+    <div class="container">
+      <h2 class="text-center mb-4">Explora por categoría</h2>
+      <div class="row g-3" id="categoriasRapidas">
+        <div class="col-6 col-md-3">
+          <a href="catalog.html?categoria=Tortas%20Cuadradas" class="text-decoration-none">
+            <div class="card-producto text-center p-3">
+              <div class="icono-redondo"></div>
+              <h6>Tortas Cuadradas</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="catalog.html?categoria=Tortas%20Circulares" class="text-decoration-none">
+            <div class="card-producto text-center p-3">
+              <div class="icono-redondo"></div>
+              <h6>Tortas Circulares</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="catalog.html?categoria=Productos%20Vegana" class="text-decoration-none">
+            <div class="card-producto text-center p-3">
+              <div class="icono-redondo"></div>
+              <h6>Linea Vegana</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="catalog.html?categoria=Tortas%20Especiales" class="text-decoration-none">
+            <div class="card-producto text-center p-3">
+              <div class="icono-redondo"></div>
+              <h6>Tortas Especiales</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <section class="seccion seccion-alterna">
+    <div class="container">
+      <h2 class="text-center mb-4">Productos destacados</h2>
+      <div class="row g-4" id="contenedorDestacados">
+        <!-- JS insertara 4 tarjetas de producto -->
+      </div>
+      <div class="text-center mt-4">
+        <a href="catalog.html" class="btn btn-rosa btn-lg">Ver catálogo completo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXTOS INFERIORES (MISION-VISION-IMPACTO)-->
+  <section class="seccion">
+    <div class="container">
+      <div class="row g-4 text-center justify-content-center">
+        <div class="col-md-6">
+          <div class="icono-redondo"></div>
+          <h5>Misión</h5>
+          <p class="texto-secundario">Ofrecer una experiencia dulce y memorable, con productos de alta calidad para
+            todas las ocasiones, celebrando nuestras raíces históricas.</p>
+        </div>
+        <div class="col-md-6">
+          <div class="icono-redondo"></div>
+          <h5>Visión</h5>
+          <p class="texto-secundario">Ser la tienda online líder de repostería en Chile, reconocida por innovar,
+            por su calidad e impacto en la comunidad gastronómica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-mil-sabores">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h6>🧁 Pastelería Mil Sabores</h6>
+          <p class="mb-0">50 años endulzando momentos en Chile.</p>
+        </div>
+        <div class="col-md-4">
+          <h6>Enlaces</h6>
+          <ul class="list-unstyled">
+            <li><a href="catalog.html">Catálogo</a></li>
+            <li><a href="description.html">Nosotros</a></li>
+            <li><a href="blog.html">Blog y recetas</a></li>
+            <li><a href="follow.html">Seguimiento de pedido</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6>Síguenos</h6>
+          <div class="d-flex gap-3 fs-4">
+            <a href="#" onclick="compartirEnRedes('¡Mira Pastelería Mil Sabores!'); return false;">Instagram</a>
+            <a href="#" onclick="compartirEnRedes('¡Mira Pastelería Mil Sabores!'); return false;">Facebook</a>
+            <a href="#" onclick="compartirEnRedes('¡Mira Pastelería Mil Sabores!'); return false;">Twitter</a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-light opacity-10">
+      <p class="text-center mb-0 small"><span class="anio-actual"></span> Pastelería Mil Sabores. FullStack II Grupo6.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Pinta 4 productos destacados en la portada
+    const destacados = [PRODUCTOS[0], PRODUCTOS[2], PRODUCTOS[12], PRODUCTOS[14]];
+    const contenedor = document.getElementById("contenedorDestacados");
+    destacados.forEach(p => {
+      contenedor.innerHTML += `
       <div class="col-6 col-lg-3">
         <div class="card-producto p-3">
           <div class="card-img-top d-flex align-items-center justify-content-center mb-2">🍰</div>
@@ -186,7 +190,8 @@
           <a href="producto.html?codigo=${p.codigo}" class="btn btn-mil-sabores btn-sm w-100">Ver producto</a>
         </div>
       </div>`;
-  });
-</script>
+    });
+  </script>
 </body>
+
 </html>
