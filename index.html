@@ -108,7 +108,6 @@
   <div class="container">
     <h2 class="text-center mb-4">Productos destacados</h2>
     <div class="row g-4" id="contenedorDestacados">
-      <!-- JS insertara 4 tarjetas de producto -->
     </div>
     <div class="text-center mt-4">
       <a href="catalog.html" class="btn btn-rosa btn-lg">Ver catálogo completo</a>
@@ -116,7 +115,7 @@
   </div>
 </section>
 
-<!-- TEXTOS INFERIORES (MISION-VISION-IMPACTO)-->
+<!-- TEXTOS INFERIORES (MISION-VISION)-->
 <section class="seccion">
   <div class="container">
     <div class="row g-4 text-center justify-content-center">
@@ -172,7 +171,8 @@
 <script src="js/carrito.js"></script>
 <script src="js/main.js"></script>
 <script>
-  // Pinta 4 productos destacados en la portada
+
+  // Añadir 4 productos destacados en la portada
   const destacados = [PRODUCTOS[0], PRODUCTOS[2], PRODUCTOS[12], PRODUCTOS[14]];
   const contenedor = document.getElementById("contenedorDestacados");
   destacados.forEach(p => {
