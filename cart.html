@@ -73,57 +73,5 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/data.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/main.js"></script>
-<script>
-  function pintarCarrito() {
-    const carrito = obtenerCarrito();
-    const lista = document.getElementById("listaCarrito");
-
-    if (carrito.length === 0) {
-      lista.innerHTML = `
-        <div class="text-center py-5 card-producto">
-          <p class="fs-1 mb-2">🛒</p>
-          <h5>Tu carrito está vacío</h5>
-          <p class="texto-secundario">Explora el catálogo y encuentra tu próxima torta favorita.</p>
-          <a href="catalogo.html" class="btn btn-mil-sabores">Ver catálogo</a>
-        </div>`;
-    } else {
-      lista.innerHTML = carrito.map(item => `
-        <div class="card-producto p-3 mb-3 d-flex flex-row gap-3 align-items-center flex-wrap">
-          <div class="fs-1">🍰</div>
-          <div class="flex-fill">
-            <h6 class="mb-1">${item.nombre}</h6>
-            <p class="small texto-secundario mb-1">Tamaño: ${item.tamano}${item.mensaje ? " · Mensaje: \u201c" + item.mensaje + "\u201d" : ""}</p>
-            <p class="precio mb-0">${formatoCLP(item.precio)} c/u</p>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <input type="number" min="1" value="${item.cantidad}" class="form-control text-center" style="width:70px;"
-              onchange="modificarCantidad('${item.idLinea}', parseInt(this.value)); pintarCarrito();">
-            <button class="btn btn-outline-mil-sabores btn-sm" onclick="eliminarDelCarrito('${item.idLinea}'); pintarCarrito();">Quitar</button>
-          </div>
-        </div>`).join("");
-    }
-
-    const subtotal = calcularSubtotal(carrito);
-    const descuento = calcularDescuento(subtotal);
-    const montoDescuento = Math.round(subtotal * descuento.porcentaje / 100);
-    const total = subtotal - montoDescuento;
-
-    document.getElementById("resumenSubtotal").textContent = formatoCLP(subtotal);
-    document.getElementById("resumenTotal").textContent = formatoCLP(total);
-    document.getElementById("btnPagar").classList.toggle("disabled", carrito.length === 0);
-
-    if (descuento.porcentaje > 0) {
-      document.getElementById("filaDescuento").style.display = "flex";
-      document.getElementById("etiquetaDescuento").textContent = `Descuento (${descuento.porcentaje}%)`;
-      document.getElementById("resumenDescuento").textContent = "-" + formatoCLP(montoDescuento);
-      document.getElementById("avisoSinSesion").style.display = "none";
-    }
-  }
-
-  pintarCarrito();
-</script>
 </body>
 </html>
