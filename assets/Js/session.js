@@ -10,12 +10,12 @@ function iniciarSesion(usuario) {
     localStorage.setItem("usuarioTipo", usuario.tipo);
 }
 
-function cerrarSesion() {
+function cerrarSesion(rutaLogin) {
     localStorage.removeItem("sesionActiva");
     localStorage.removeItem("usuarioNombre");
     localStorage.removeItem("usuarioCorreo");
     localStorage.removeItem("usuarioTipo");
-    window.location.href = "../login.html";
+    window.location.href = rutaLogin || "../login.html";
 }
 
 function redirigirSegunTipoDeUsuario(usuario) {

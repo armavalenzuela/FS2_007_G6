@@ -42,8 +42,7 @@
     <header class="hero-mil-sabores text-center">
         <div class="container">
             <h1>Mi cuenta</h1>
-            <p class="fs-5 mx-auto" style="max-width:600px;">Revisa tus datos, tus beneficios activos y tu historial de
-                pedidos en Pastelería Mil Sabores.</p>
+            <p class="fs-5 mx-auto" style="max-width:600px;">Revisa tus datos y beneficios activos </p>
         </div>
     </header>
 
@@ -62,21 +61,21 @@
                                 <div class="mb-3">
                                     <label for="perfilNombre" class="form-label">Nombre completo</label>
                                     <input type="text" class="form-control" id="perfilNombre" name="nombre"
-                                        value="María Pérez" autocomplete="name" required minlength="3">
+                                        autocomplete="name" required minlength="3">
                                     <div class="invalid-feedback">Ingresa tu nombre completo.</div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="perfilCorreo" class="form-label">Correo electrónico</label>
                                     <input type="email" class="form-control" id="perfilCorreo" name="correo"
-                                        value="maria.perez@duocuc.cl" autocomplete="email" required>
+                                        autocomplete="email" required>
                                     <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="perfilFechaNacimiento" class="form-label">Fecha de nacimiento</label>
                                     <input type="date" class="form-control" id="perfilFechaNacimiento"
-                                        name="fechaNacimiento" value="1970-05-14" autocomplete="bday" required>
+                                        name="fechaNacimiento" autocomplete="bday" required>
                                 </div>
 
                                 <div class="mb-4">
@@ -95,21 +94,39 @@
                     <div class="col-lg-5">
 
                         <!-- Beneficios activos segun las reglas del negocio -->
-                        <article class="card-producto p-4 mb-4 sombra-suave">
+                        <article class="card-producto p-4 sombra-suave">
                             <h2 class="h5 mb-3">Mis beneficios</h2>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2">🎂 <strong>Descuento 50%</strong> — activo por ser socio de 50 años o
-                                    más.</li>
-                                <li class="mb-2">🎓 <strong>Torta de cumpleaños gratis</strong> — activo por registro
-                                    con correo Duoc.</li>
-                                <li class="mb-0">🎟️ <strong>Código FELICES50</strong> — no aplicado a esta cuenta.</li>
+                            <ul class="list-unstyled mb-0" id="listaBeneficios">
+                                <li class="mb-2 d-flex justify-content-between align-items-start gap-2" id="beneficioDescuento">
+                                    <span>🎂 <strong>Descuento 50%</strong> — para socios de 50 años o más.</span>
+                                    <span class="badge rounded-pill" id="estadoDescuento">—</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between align-items-start gap-2" id="beneficioTortaDuoc">
+                                    <span>🎓 <strong>Torta de cumpleaños gratis</strong> — para registros con correo
+                                        Duoc.</span>
+                                    <span class="badge rounded-pill" id="estadoTortaDuoc">—</span>
+                                </li>
+                                <li class="mb-0 d-flex justify-content-between align-items-start gap-2" id="beneficioCodigo">
+                                    <span>🎟️ <strong>Código FELICES50</strong> — 50% de descuento adicional.</span>
+                                    <span class="badge rounded-pill" id="estadoCodigo">—</span>
+                                </li>
                             </ul>
-                        </article>
 
-                        <!-- Cerrar sesion -->
-                        <article class="card-producto p-4 sombra-suave text-center">
-                            <p class="mb-3 small texto-secundario">¿Ya terminaste tu visita?</p>
-                            <a href="login.html" class="btn btn-outline-secondary w-100">Cerrar sesión</a>
+                            <!-- Canje de codigo promocional -->
+                            <div class="input-group input-group-sm mt-3" id="grupoCodigoPromocional">
+                                <input type="text" class="form-control" id="inputCodigoPromocional"
+                                    placeholder="Ingresa un código promocional" maxlength="30">
+                                <button type="button" class="btn btn-outline-secondary"
+                                    id="btnAplicarCodigo">Aplicar</button>
+                            </div>
+                            <p class="small mt-2 mb-0" id="mensajeCodigoPromocional"></p>
+
+                            <hr class="my-4">
+
+                            <!-- Cerrar sesion -->
+                            <p class="mb-3 small texto-secundario text-center">¿Ya terminaste tu visita?</p>
+                            <button type="button" class="btn btn-outline-secondary w-100"
+                                onclick="cerrarSesion('login.html')">Cerrar sesión</button>
                         </article>
 
                     </div>
@@ -127,6 +144,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/Js/users-ej.js"></script>
     <script src="assets/Js/session.js"></script>
+    <script src="assets/Js/profile.js"></script>
     <script>
         protegerPagina(["cliente"], "login.html");
     </script>

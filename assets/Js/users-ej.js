@@ -5,6 +5,7 @@ const USUARIOS = [
     { nombre: 'Vendedor', correo: 'vendedor@duoc.cl', contrasena: 'vendedor1', tipo: 'vendedor' },
     { nombre: 'Armando', correo: 'armando@gmail.com', contrasena: 'armand123', tipo: 'cliente' },
     { nombre: 'Sebastian', correo: 'sebastian@gmail.com', contrasena: 'sebas123', tipo: 'cliente' }
+    { nombre: 'Juan', correo: 'juan@duoc.cl', contrasena: 'juan12345', tipo: 'cliente' }
 ];
 
 function buscarUsuarioPorCorreo(correo) {
