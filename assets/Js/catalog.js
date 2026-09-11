@@ -12,7 +12,9 @@ function pintarProductos(listaDeProductos) {
     htmlCompleto += `
       <div class='col-6 col-md-4'>
         <div class='card-producto p-3'>
-          <div class='card-img-top mb-3' aria-hidden='true'></div>
+          <div class='card-img-top mb-3'>
+            <img src='${producto.imagen}' alt='${producto.nombre}' class='w-100 h-100' style='object-fit:cover;' onerror='this.remove()'>
+          </div>
           <a href='products.html?codigo=${producto.codigo}' class='text-decoration-none'>
             <h6 class='mt-2'>${producto.nombre}</h6>
           </a>

@@ -117,6 +117,16 @@ a:hover { color: var(--color-texto); }
   object-fit: cover;
   background-color: var(--color-rosa);
 }
+
+/* Imagen grande de la ficha de detalle (products.html) */
+.detalle-img-producto {
+  height: 320px;
+  overflow: hidden;
+  background-color: var(--color-rosa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card-producto .precio {
   font-weight: 700;
   color: var(--color-chocolate);

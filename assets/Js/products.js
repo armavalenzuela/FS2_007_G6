@@ -18,7 +18,9 @@ function mostrarDetalleDelProducto() {
   var html = `
     <div class='row g-4'>
       <div class='col-md-6'>
-        <div class='card-producto p-5 text-center'>${producto.categoria}</div>
+        <div class='card-producto detalle-img-producto'>
+          <img src='${producto.imagen}' alt='${producto.nombre}' class='w-100 h-100' style='object-fit:cover;' onerror="this.remove(); this.parentElement.classList.add('p-5','text-center'); this.parentElement.textContent='${producto.categoria}';">
+        </div>
       </div>
       <div class='col-md-6'>
         <h1 class='fs-2'>${producto.nombre}</h1>
