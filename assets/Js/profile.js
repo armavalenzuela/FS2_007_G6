@@ -4,7 +4,6 @@ var dominiosDuoc = ["@duoc.cl", "@profesor.duoc.cl"];
 // Codigo promocional valido para el beneficio "FELICES50"
 var CODIGO_FELICES50 = "FELICES50";
 
-// Devuelve la clave de localStorage donde se guardan los datos extra de un correo
 function claveDatosExtra(correo) {
   return "perfilExtra_" + correo.trim().toLowerCase();
 }
@@ -18,7 +17,7 @@ function obtenerDatosExtraPerfil(correo) {
   return JSON.parse(guardado);
 }
 
-// Guarda (mezclando con lo existente) los datos extra de perfil de un correo
+// Guarda (mezclando con lo existente) los datos del perfil
 function guardarDatosExtraPerfil(correo, datosNuevos) {
   var datosActuales = obtenerDatosExtraPerfil(correo);
   var datosCombinados = Object.assign(datosActuales, datosNuevos);

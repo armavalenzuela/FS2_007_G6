@@ -1,71 +1,84 @@
 
-function pintarCarrito() {
+// Se guarda en localStorage para que el carrito no se borre al cambiar de pagina
+var CLAVE_CARRITO = "carritoMilSabores";
+
+// Devuelve el arreglo del carrito guardado en localStorage (o un arreglo vacio si no hay nada)
+function obtenerCarrito() {
+  var textoGuardado = localStorage.getItem(CLAVE_CARRITO);
+  if (textoGuardado === null) {
+    return [];
+  }
+  return JSON.parse(textoGuardado);
+}
+
+// Guarda el arreglo del carrito en localStorage
+function guardarCarrito(carrito) {
+  var textoParaGuardar = JSON.stringify(carrito);
+  localStorage.setItem(CLAVE_CARRITO, textoParaGuardar);
+  actualizarContadorCarrito();
+}
+
+// Agrega un producto al carrito. Si ya estaba, solo le suma la cantidad
+function agregarAlCarrito(codigoProducto, cantidad) {
   var carrito = obtenerCarrito();
-  var contenedor = document.getElementById("listaCarrito");
-  var subtotal = 0;
+  var yaEstaEnElCarrito = false;
 
-  if (carrito.length === 0) {
-    contenedor.innerHTML = "<p class='texto-secundario'>Tu carrito está vacío. <a href='catalog.html'>Ir al catálogo</a></p>";
-  } else {
-    var html = "";
-    for (var i = 0; i < carrito.length; i++) {
-      var lineaDelCarrito = carrito[i];
-      var producto = buscarProductoPorCodigo(lineaDelCarrito.codigo);
-
-      if (producto === null) {
-        continue; // por si el codigo guardado ya no existe en el arreglo de productos
-      }
-
-      var subtotalDeLaLinea = producto.precio * lineaDelCarrito.cantidad;
-      subtotal = subtotal + subtotalDeLaLinea;
-
-      html += `
-        <div class='card-producto p-3 mb-3 d-flex align-items-center justify-content-between flex-wrap gap-2'>
-          <div>
-            <h6 class='mb-1'>${producto.nombre}</h6>
-            <p class='small texto-secundario mb-0'>${formatoPesos(producto.precio)} c/u</p>
-          </div>
-          <div class='d-flex align-items-center gap-2'>
-            <input type='number' min='1' value='${lineaDelCarrito.cantidad}' class='form-control input-cantidad' style='width:70px;' data-codigo='${producto.codigo}'>
-            <button class='btn btn-outline-mil-sabores btn-sm btn-quitar' data-codigo='${producto.codigo}'>Quitar</button>
-          </div>
-        </div>`;
+  for (var i = 0; i < carrito.length; i++) {
+    if (carrito[i].codigo === codigoProducto) {
+      carrito[i].cantidad = carrito[i].cantidad + cantidad;
+      yaEstaEnElCarrito = true;
     }
-    contenedor.innerHTML = html;
   }
 
-  document.getElementById("resumenSubtotal").textContent = formatoPesos(subtotal);
-  document.getElementById("resumenTotal").textContent = formatoPesos(subtotal);
+  if (yaEstaEnElCarrito === false) {
+    carrito.push({ codigo: codigoProducto, cantidad: cantidad });
+  }
 
-  // si el carrito esta vacio, se desactiva el boton de pagar
-  var botonPagar = document.getElementById("btnPagar");
-  if (carrito.length === 0) {
-    botonPagar.classList.add("disabled");
-  } else {
-    botonPagar.classList.remove("disabled");
+  guardarCarrito(carrito);
+}
+
+// Cuenta cuantas unidades en total hay en el carrito, y lo muestra en el "badge" del navbar
+function actualizarContadorCarrito() {
+  var carrito = obtenerCarrito();
+  var totalUnidades = 0;
+
+  for (var i = 0; i < carrito.length; i++) {
+    totalUnidades = totalUnidades + carrito[i].cantidad;
+  }
+
+  var badges = document.querySelectorAll(".contador-carrito");
+  for (var j = 0; j < badges.length; j++) {
+    badges[j].textContent = totalUnidades;
   }
 }
 
+// Cambia la cantidad de un producto que ya esta en el carrito
+function cambiarCantidadEnCarrito(codigoProducto, nuevaCantidad) {
+  var carrito = obtenerCarrito();
+  for (var i = 0; i < carrito.length; i++) {
+    if (carrito[i].codigo === codigoProducto) {
+      carrito[i].cantidad = nuevaCantidad;
+    }
+  }
+  guardarCarrito(carrito);
+}
+
+// Elimina un producto del carrito por completo
+function eliminarDelCarrito(codigoProducto) {
+  var carritoNuevo = [];
+  var carritoActual = obtenerCarrito();
+
+  for (var i = 0; i < carritoActual.length; i++) {
+    if (carritoActual[i].codigo !== codigoProducto) {
+      carritoNuevo.push(carritoActual[i]);
+    }
+  }
+
+  guardarCarrito(carritoNuevo);
+}
+
+// Apenas carga cualquier pagina que incluya este archivo, actualizamos el numerito del carrito y el año del footer
 document.addEventListener("DOMContentLoaded", function () {
-  pintarCarrito();
-
-  // Botones de quitar y cambiar cantidad se crean recien ahora, asi que hay que agregarles el evento aqui mismo
-  var contenedor = document.getElementById("listaCarrito");
-
-  contenedor.addEventListener("click", function (evento) {
-    if (evento.target.classList.contains("btn-quitar")) {
-      var codigo = evento.target.getAttribute("data-codigo");
-      eliminarDelCarrito(codigo);
-      pintarCarrito();
-    }
-  });
-
-  contenedor.addEventListener("change", function (evento) {
-    if (evento.target.classList.contains("input-cantidad")) {
-      var codigo = evento.target.getAttribute("data-codigo");
-      var nuevaCantidad = Number(evento.target.value);
-      cambiarCantidadEnCarrito(codigo, nuevaCantidad);
-      pintarCarrito();
-    }
-  });
+  actualizarContadorCarrito();
+  actualizarAnioFooter();
 });
